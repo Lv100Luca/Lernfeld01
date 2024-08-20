@@ -1,5 +1,5 @@
-import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Scanner;
 
 public class SequentialProgramming {
     public static void main(String[] args) {
@@ -16,9 +16,13 @@ public class SequentialProgramming {
 
 //        Task6();
 
-        Task7();
+//        Task7();
 
         Task8();
+
+//        Task9();
+
+//        Task10();
     }
 
     private static void Task1() {
@@ -31,8 +35,6 @@ public class SequentialProgramming {
 
     private static void Task2() {
         System.out.println("Task 2");
-        var reader = new BufferedReader(
-                new InputStreamReader(System.in));
 
         var num1 = GetNumberFromConsole();
         var num2 = GetNumberFromConsole();
@@ -45,19 +47,17 @@ public class SequentialProgramming {
     }
 
     private static double GetNumberFromConsole(String prompt) {
-        var reader = new BufferedReader(
-                new InputStreamReader(System.in));
-        double num;
+        System.out.print(prompt);
 
-        try {
-            System.out.print(prompt);
-            num = Double.parseDouble(reader.readLine());
-        } catch (Exception e) {
-            System.out.println("Error: Could not parse input.");
-            throw new RuntimeException();
-        }
+        var scanner = new Scanner(System.in);
+        return scanner.nextDouble();
+    }
 
-        return num;
+    private static int GetIntFromConsole(String prompt) {
+        System.out.print(prompt);
+
+        var scanner = new Scanner(System.in);
+        return scanner.nextInt();
     }
 
     private static void PrintDiffAndSum(double num1, double num2) {
@@ -106,8 +106,6 @@ public class SequentialProgramming {
 
     private static void Task4() {
         System.out.println("Task 4");
-        var reader = new BufferedReader(
-                new InputStreamReader(System.in));
 
         var temperatureNum = GetNumberFromConsole("Enter temperature in Celsius:");
 
@@ -158,6 +156,48 @@ public class SequentialProgramming {
 
     private static void Task8() {
         System.out.println("Task 8");
+        var amountInput = GetIntFromConsole("Enter amount: ");
 
+        var amount = new Amount(amountInput);
+        amount.printAmount2();
+    }
+
+    private static void Task9() {
+        System.out.println("Task 9");
+
+        // formula s = 0.5 * g * t^2
+        // t = sqrt(2 * s / g)
+
+        var height = 12; // in meters
+
+        final double g = 9.81; // in m/s^2
+
+        System.out.println("height: " + height);
+        var time = Math.sqrt(2 * height / g);
+
+        System.out.println("Time falling: " + time);
+
+        var speed = g * time;
+
+        System.out.println("Speed (m/s): " + speed);
+
+        var speedkmh = speed * 3.6;
+
+        System.out.println("Speed (km/h): " + speedkmh);
+    }
+
+    private static void Task10() {
+        System.out.println("Task 10");
+
+        var april = GetIntFromConsole("Niederschlagsmenge (in mm) im April: ");
+        var may = GetIntFromConsole("Niederschlagsmenge (in mm) im Mai: ");
+        var june = GetIntFromConsole("Niederschlagsmenge (in mm) im Juni: ");
+
+        var total = april + may + june;
+
+        var average = total / 3d;
+
+
+        System.out.println("Average: " + average);
     }
 }
