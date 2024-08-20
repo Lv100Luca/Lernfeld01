@@ -1,3 +1,5 @@
+package Models;
+
 public class Amount {
     private static final int dozen = 12;
     private static final int schock = 60;
@@ -5,7 +7,7 @@ public class Amount {
 
     public Amount(int amount) {
         if (amount < 0)
-            throw new IllegalArgumentException("Amount must be positive");
+            throw new IllegalArgumentException("Models.Amount must be positive");
 
         this.amount = amount;
     }

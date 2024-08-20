@@ -1,3 +1,5 @@
+package Models;
+
 public class Temperature {
     public Temperature(double celsius) {
         this.celsius = celsius;
@@ -11,6 +13,6 @@ public class Temperature {
 
     @Override
     public String toString() {
-        return String.format("Temperature: %.1f°C/%.1f°F", celsius, fahrenheit());
+        return String.format("Models.Temperature: %.1f°C/%.1f°F", celsius, fahrenheit());
     }
 }

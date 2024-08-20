@@ -1,3 +1,5 @@
+package Models;
+
 public class Circle {
     public Circle(double radius) {
         this.radius = radius;
@@ -13,7 +15,7 @@ public class Circle {
         return 2 * Math.PI * radius;
     }
 
-    public void printf() {
+    public void PrettyPrint() {
         System.out.printf("Radius: %.2f%n", radius);
         System.out.printf("Area: %.2f%n", area());
         System.out.printf("Circumference: %.2f%n", circumference());
